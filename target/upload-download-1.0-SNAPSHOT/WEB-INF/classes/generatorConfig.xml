@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <classPathEntry
+            location="/Users/zhibingze/repo/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar"/>
+
+
+    <context id="context">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection
+                connectionURL="jdbc:mysql://127.0.0.1:3306/tracing_process?characterEncoding=utf8"
+                driverClass="com.mysql.jdbc.Driver" password="mysql" userId="root"/>
+        <javaModelGenerator targetPackage="com.pancake.pojo"
+                            targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="com.pancake.dao.mapper"
+                         targetProject="src/main/java"/>
+        <javaClientGenerator targetPackage="com.pancake.dao"
+                             targetProject="src/main/java" type="XMLMAPPER"/>
+
+        <table schema="tra_links" tableName="tra_links">
+        </table>
+        <table schema="tra_quality" tableName="tra_quality">
+        </table>
+
+    </context>
+
+</generatorConfiguration>

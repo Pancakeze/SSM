@@ -1,0 +1,1393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - tracing_process@localhost" uuid="cc0d6ff0-7700-4d4c-8a13-790e8814afee">
+    <database-info product="MySQL" version="5.7.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="tracing_process"/>
+      <table id="2" parent="1" name="qrtz_blob_triggers"/>
+      <table id="3" parent="1" name="qrtz_calendars"/>
+      <table id="4" parent="1" name="qrtz_cron_triggers"/>
+      <table id="5" parent="1" name="qrtz_fired_triggers"/>
+      <table id="6" parent="1" name="qrtz_job_details"/>
+      <table id="7" parent="1" name="qrtz_locks"/>
+      <table id="8" parent="1" name="qrtz_paused_trigger_grps"/>
+      <table id="9" parent="1" name="qrtz_scheduler_state"/>
+      <table id="10" parent="1" name="qrtz_simple_triggers"/>
+      <table id="11" parent="1" name="qrtz_simprop_triggers"/>
+      <table id="12" parent="1" name="qrtz_triggers"/>
+      <table id="13" parent="1" name="sys_test"/>
+      <table id="14" parent="1" name="sys_user"/>
+      <table id="15" parent="1" name="tra_addresses"/>
+      <table id="16" parent="1" name="tra_brands"/>
+      <table id="17" parent="1" name="tra_companies"/>
+      <table id="18" parent="1" name="tra_company_relationships"/>
+      <table id="19" parent="1" name="tra_company_users"/>
+      <table id="20" parent="1" name="tra_form_item_options"/>
+      <table id="21" parent="1" name="tra_form_items"/>
+      <table id="22" parent="1" name="tra_forms"/>
+      <table id="23" parent="1" name="tra_link_address"/>
+      <table id="24" parent="1" name="tra_link_users"/>
+      <table id="25" parent="1" name="tra_links"/>
+      <table id="26" parent="1" name="tra_processes"/>
+      <table id="27" parent="1" name="tra_product_category"/>
+      <table id="28" parent="1" name="tra_products"/>
+      <table id="29" parent="1" name="tra_quality"/>
+      <table id="30" parent="1" name="tra_quality_defect"/>
+      <table id="31" parent="1" name="tra_quality_defect_item"/>
+      <table id="32" parent="1" name="tra_quality_others"/>
+      <table id="33" parent="1" name="tra_quality_relation_companys"/>
+      <table id="34" parent="1" name="tra_quality_standard"/>
+      <table id="35" parent="1" name="tra_quality_standard_item"/>
+      <column id="36" parent="2" name="SCHED_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="37" parent="2" name="TRIGGER_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="38" parent="2" name="TRIGGER_GROUP">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="39" parent="2" name="BLOB_DATA">
+        <data-type>blob</data-type>
+      </column>
+      <key id="40" parent="2" name="PRIMARY">
+        <columns>SCHED_NAME
+TRIGGER_NAME
+TRIGGER_GROUP</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="41" parent="2" name="qrtz_blob_triggers_ibfk_1">
+        <columns>SCHED_NAME
+TRIGGER_NAME
+TRIGGER_GROUP</columns>
+        <ref-key>~.qrtz_triggers.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="42" parent="3" name="SCHED_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="43" parent="3" name="CALENDAR_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="44" parent="3" name="CALENDAR">
+        <mandatory>1</mandatory>
+        <data-type>blob</data-type>
+      </column>
+      <key id="45" parent="3" name="PRIMARY">
+        <columns>SCHED_NAME
+CALENDAR_NAME</columns>
+        <primary>1</primary>
+      </key>
+      <column id="46" parent="4" name="SCHED_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="47" parent="4" name="TRIGGER_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="48" parent="4" name="TRIGGER_GROUP">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="49" parent="4" name="CRON_EXPRESSION">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="50" parent="4" name="TIME_ZONE_ID">
+        <data-type>varchar(80)</data-type>
+      </column>
+      <key id="51" parent="4" name="PRIMARY">
+        <columns>SCHED_NAME
+TRIGGER_NAME
+TRIGGER_GROUP</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="52" parent="4" name="qrtz_cron_triggers_ibfk_1">
+        <columns>SCHED_NAME
+TRIGGER_NAME
+TRIGGER_GROUP</columns>
+        <ref-key>~.qrtz_triggers.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="53" parent="5" name="SCHED_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="54" parent="5" name="ENTRY_ID">
+        <mandatory>1</mandatory>
+        <data-type>varchar(95)</data-type>
+      </column>
+      <column id="55" parent="5" name="TRIGGER_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="56" parent="5" name="TRIGGER_GROUP">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="57" parent="5" name="INSTANCE_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="58" parent="5" name="FIRED_TIME">
+        <mandatory>1</mandatory>
+        <data-type>bigint(13)</data-type>
+      </column>
+      <column id="59" parent="5" name="SCHED_TIME">
+        <mandatory>1</mandatory>
+        <data-type>bigint(13)</data-type>
+      </column>
+      <column id="60" parent="5" name="PRIORITY">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="61" parent="5" name="STATE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="62" parent="5" name="JOB_NAME">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="63" parent="5" name="JOB_GROUP">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="64" parent="5" name="IS_NONCONCURRENT">
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="65" parent="5" name="REQUESTS_RECOVERY">
+        <data-type>varchar(1)</data-type>
+      </column>
+      <key id="66" parent="5" name="PRIMARY">
+        <columns>SCHED_NAME
+ENTRY_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="67" parent="6" name="SCHED_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="68" parent="6" name="JOB_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="69" parent="6" name="JOB_GROUP">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="70" parent="6" name="DESCRIPTION">
+        <data-type>varchar(250)</data-type>
+      </column>
+      <column id="71" parent="6" name="JOB_CLASS_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(250)</data-type>
+      </column>
+      <column id="72" parent="6" name="IS_DURABLE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="73" parent="6" name="IS_NONCONCURRENT">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="74" parent="6" name="IS_UPDATE_DATA">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="75" parent="6" name="REQUESTS_RECOVERY">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="76" parent="6" name="JOB_DATA">
+        <data-type>blob</data-type>
+      </column>
+      <key id="77" parent="6" name="PRIMARY">
+        <columns>SCHED_NAME
+JOB_NAME
+JOB_GROUP</columns>
+        <primary>1</primary>
+      </key>
+      <column id="78" parent="7" name="SCHED_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="79" parent="7" name="LOCK_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <key id="80" parent="7" name="PRIMARY">
+        <columns>SCHED_NAME
+LOCK_NAME</columns>
+        <primary>1</primary>
+      </key>
+      <column id="81" parent="8" name="SCHED_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="82" parent="8" name="TRIGGER_GROUP">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <key id="83" parent="8" name="PRIMARY">
+        <columns>SCHED_NAME
+TRIGGER_GROUP</columns>
+        <primary>1</primary>
+      </key>
+      <column id="84" parent="9" name="SCHED_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="85" parent="9" name="INSTANCE_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="86" parent="9" name="LAST_CHECKIN_TIME">
+        <mandatory>1</mandatory>
+        <data-type>bigint(13)</data-type>
+      </column>
+      <column id="87" parent="9" name="CHECKIN_INTERVAL">
+        <mandatory>1</mandatory>
+        <data-type>bigint(13)</data-type>
+      </column>
+      <key id="88" parent="9" name="PRIMARY">
+        <columns>SCHED_NAME
+INSTANCE_NAME</columns>
+        <primary>1</primary>
+      </key>
+      <column id="89" parent="10" name="SCHED_NAME">
+        <comment>名字</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="90" parent="10" name="TRIGGER_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="91" parent="10" name="TRIGGER_GROUP">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="92" parent="10" name="REPEAT_COUNT">
+        <mandatory>1</mandatory>
+        <data-type>bigint(7)</data-type>
+      </column>
+      <column id="93" parent="10" name="REPEAT_INTERVAL">
+        <mandatory>1</mandatory>
+        <data-type>bigint(12)</data-type>
+      </column>
+      <column id="94" parent="10" name="TIMES_TRIGGERED">
+        <mandatory>1</mandatory>
+        <data-type>bigint(10)</data-type>
+      </column>
+      <key id="95" parent="10" name="PRIMARY">
+        <columns>SCHED_NAME
+TRIGGER_NAME
+TRIGGER_GROUP</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="96" parent="10" name="qrtz_simple_triggers_ibfk_1">
+        <columns>SCHED_NAME
+TRIGGER_NAME
+TRIGGER_GROUP</columns>
+        <ref-key>~.qrtz_triggers.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="97" parent="11" name="SCHED_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="98" parent="11" name="TRIGGER_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="99" parent="11" name="TRIGGER_GROUP">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="100" parent="11" name="STR_PROP_1">
+        <data-type>varchar(512)</data-type>
+      </column>
+      <column id="101" parent="11" name="STR_PROP_2">
+        <data-type>varchar(512)</data-type>
+      </column>
+      <column id="102" parent="11" name="STR_PROP_3">
+        <data-type>varchar(512)</data-type>
+      </column>
+      <column id="103" parent="11" name="INT_PROP_1">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="104" parent="11" name="INT_PROP_2">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="105" parent="11" name="LONG_PROP_1">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="106" parent="11" name="LONG_PROP_2">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="107" parent="11" name="DEC_PROP_1">
+        <data-type>decimal(13,4)</data-type>
+      </column>
+      <column id="108" parent="11" name="DEC_PROP_2">
+        <data-type>decimal(13,4)</data-type>
+      </column>
+      <column id="109" parent="11" name="BOOL_PROP_1">
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="110" parent="11" name="BOOL_PROP_2">
+        <data-type>varchar(1)</data-type>
+      </column>
+      <key id="111" parent="11" name="PRIMARY">
+        <columns>SCHED_NAME
+TRIGGER_NAME
+TRIGGER_GROUP</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="112" parent="11" name="qrtz_simprop_triggers_ibfk_1">
+        <columns>SCHED_NAME
+TRIGGER_NAME
+TRIGGER_GROUP</columns>
+        <ref-key>~.qrtz_triggers.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="113" parent="12" name="SCHED_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="114" parent="12" name="TRIGGER_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="115" parent="12" name="TRIGGER_GROUP">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="116" parent="12" name="JOB_NAME">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="117" parent="12" name="JOB_GROUP">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="118" parent="12" name="DESCRIPTION">
+        <data-type>varchar(250)</data-type>
+      </column>
+      <column id="119" parent="12" name="NEXT_FIRE_TIME">
+        <data-type>bigint(13)</data-type>
+      </column>
+      <column id="120" parent="12" name="PREV_FIRE_TIME">
+        <data-type>bigint(13)</data-type>
+      </column>
+      <column id="121" parent="12" name="PRIORITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="122" parent="12" name="TRIGGER_STATE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="123" parent="12" name="TRIGGER_TYPE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="124" parent="12" name="START_TIME">
+        <mandatory>1</mandatory>
+        <data-type>bigint(13)</data-type>
+      </column>
+      <column id="125" parent="12" name="END_TIME">
+        <data-type>bigint(13)</data-type>
+      </column>
+      <column id="126" parent="12" name="CALENDAR_NAME">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="127" parent="12" name="MISFIRE_INSTR">
+        <data-type>smallint(2)</data-type>
+      </column>
+      <column id="128" parent="12" name="JOB_DATA">
+        <data-type>blob</data-type>
+      </column>
+      <index id="129" parent="12" name="SCHED_NAME">
+        <columns>SCHED_NAME
+JOB_NAME
+JOB_GROUP</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="130" parent="12" name="PRIMARY">
+        <columns>SCHED_NAME
+TRIGGER_NAME
+TRIGGER_GROUP</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="131" parent="12" name="qrtz_triggers_ibfk_1">
+        <columns>SCHED_NAME
+JOB_NAME
+JOB_GROUP</columns>
+        <ref-key>~.qrtz_job_details.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="132" parent="13" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="133" parent="13" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="134" parent="13" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="135" parent="14" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="136" parent="14" name="company_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="137" parent="14" name="user_name">
+        <comment>用户名</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="138" parent="14" name="name">
+        <comment>姓名</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="139" parent="14" name="email">
+        <comment>邮件</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="140" parent="14" name="password">
+        <comment>密码</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="141" parent="14" name="phone">
+        <data-type>varchar(12)</data-type>
+      </column>
+      <column id="142" parent="14" name="status">
+        <comment>0:激活  1:删除</comment>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="143" parent="14" name="last_visit">
+        <comment>最后登录时间</comment>
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="144" parent="14" name="create_time">
+        <comment>创建时间</comment>
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="145" parent="14" name="salt">
+        <comment>加密因子</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <key id="146" parent="14" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="147" parent="15" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="148" parent="15" name="address">
+        <comment>地址</comment>
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="149" parent="15" name="longitude">
+        <comment>经度</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="150" parent="15" name="latitude">
+        <comment>纬度</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="151" parent="15" name="company_id">
+        <comment>公司ID</comment>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="152" parent="15" name="create_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="153" parent="15" name="create_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="154" parent="15" name="create_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="155" parent="15" name="update_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="156" parent="15" name="update_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="157" parent="15" name="update_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <key id="158" parent="15" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="159" parent="16" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="160" parent="16" name="name">
+        <comment>品牌名</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="161" parent="16" name="company_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="162" parent="16" name="company_name">
+        <comment>公司名称</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="163" parent="16" name="images">
+        <comment>品牌图片</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="164" parent="16" name="company_image">
+        <comment>公司图片</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="165" parent="16" name="url">
+        <comment>公司网址</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="166" parent="16" name="description">
+        <comment>品牌描述</comment>
+        <data-type>varchar(1024)</data-type>
+      </column>
+      <column id="167" parent="16" name="create_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="168" parent="16" name="create_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="169" parent="16" name="create_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="170" parent="16" name="update_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="171" parent="16" name="update_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="172" parent="16" name="update_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="173" parent="16" name="image">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="174" parent="16" name="image_url">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="175" parent="16" name="portal_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="176" parent="16" name="del_flag">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="177" parent="16" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="178" parent="17" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="179" parent="17" name="portal_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="180" parent="17" name="name">
+        <comment>公司名称</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="181" parent="17" name="main_brand_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="182" parent="17" name="main_brand_name">
+        <comment>主品牌名称</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="183" parent="17" name="create_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="184" parent="17" name="create_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="185" parent="17" name="create_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="186" parent="17" name="update_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="187" parent="17" name="update_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="188" parent="17" name="update_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="189" parent="17" name="image">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="190" parent="17" name="image_url">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="191" parent="17" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="192" parent="18" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="193" parent="18" name="company_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="194" parent="18" name="provider_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="195" parent="18" name="vendor_code">
+        <comment>供应商编码</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <key id="196" parent="18" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="197" parent="19" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="198" parent="19" name="company_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="199" parent="19" name="phone">
+        <data-type>varchar(12)</data-type>
+      </column>
+      <column id="200" parent="19" name="name">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="201" parent="19" name="email">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="202" parent="19" name="password">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="203" parent="19" name="polygon">
+        <comment>地理信息</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="204" parent="19" name="last_sign_in_time">
+        <comment>最后登录时间</comment>
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="205" parent="19" name="last_sign_in_ip">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="206" parent="19" name="address">
+        <comment>地址</comment>
+        <data-type>varchar(512)</data-type>
+      </column>
+      <column id="207" parent="19" name="province">
+        <comment>省</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="208" parent="19" name="city">
+        <comment>市</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="209" parent="19" name="county">
+        <comment>县</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="210" parent="19" name="salt">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="211" parent="19" name="del_flag">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="212" parent="19" name="status">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="213" parent="19" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="214" parent="20" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="215" parent="20" name="text">
+        <comment>配置项内容 value</comment>
+        <data-type>varchar(512)</data-type>
+      </column>
+      <column id="216" parent="20" name="value">
+        <comment>配置项值 key</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="217" parent="20" name="item_id">
+        <comment>配置项ID</comment>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="218" parent="20" name="company_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="219" parent="20" name="index_no">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="220" parent="20" name="uuid_sign">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="221" parent="20" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="222" parent="21" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="223" parent="21" name="company_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="224" parent="21" name="index_no">
+        <comment>顺序号</comment>
+        <data-type>int(4)</data-type>
+      </column>
+      <column id="225" parent="21" name="name">
+        <comment>信息项名称</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="226" parent="21" name="type">
+        <comment>信息项类型：1 单行文本、2 多行文本、 3 图片、 4下拉选项、 5 单选 、 6 多选</comment>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="227" parent="21" name="form_id">
+        <comment>表单ID</comment>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="228" parent="21" name="description">
+        <comment>描述</comment>
+        <data-type>varchar(1024)</data-type>
+      </column>
+      <column id="229" parent="21" name="fill_in">
+        <comment>0:非必填  1：必填</comment>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="230" parent="21" name="relation_item">
+        <data-type>int(255)</data-type>
+      </column>
+      <column id="231" parent="21" name="standard_name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="232" parent="21" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="233" parent="22" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="234" parent="22" name="company_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="235" parent="22" name="name">
+        <comment>表单名称</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="236" parent="22" name="status">
+        <comment>0:启用  1：禁用</comment>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="237" parent="22" name="description">
+        <comment>描述</comment>
+        <data-type>varchar(1024)</data-type>
+      </column>
+      <column id="238" parent="22" name="create_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="239" parent="22" name="create_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="240" parent="22" name="create_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="241" parent="22" name="update_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="242" parent="22" name="update_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="243" parent="22" name="update_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="244" parent="22" name="type">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="245" parent="22" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="246" parent="23" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="247" parent="23" name="link_id">
+        <comment>环节ID</comment>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="248" parent="23" name="address_is">
+        <comment>地址ID</comment>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="249" parent="23" name="address_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <key id="250" parent="23" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="251" parent="24" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="252" parent="24" name="user_id">
+        <comment>公司用户ID</comment>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="253" parent="24" name="link_id">
+        <comment>节点ID</comment>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <key id="254" parent="24" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="255" parent="25" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="256" parent="25" name="process_id">
+        <comment>流程ID</comment>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="257" parent="25" name="form_id">
+        <comment>表单ID</comment>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="258" parent="25" name="company_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="259" parent="25" name="name">
+        <comment>环节名称</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="260" parent="25" name="type">
+        <comment>0:码关联(包含信息)、1：码关联(不包含信息)、2:信息关联</comment>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="261" parent="25" name="code_rel">
+        <comment>1:内外码 2：明暗码  3：主子码</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="262" parent="25" name="scan_mode">
+        <comment>0:单码、1:多码逐个、2:多码首尾</comment>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="263" parent="25" name="locations_status">
+        <comment>0:需要 1:不需要(地理信息)</comment>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="264" parent="25" name="create_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="265" parent="25" name="create_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="266" parent="25" name="create_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="267" parent="25" name="update_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="268" parent="25" name="update_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="269" parent="25" name="update_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="270" parent="25" name="code_relation">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="271" parent="25" name="scan_model">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="272" parent="25" name="radius">
+        <data-type>double</data-type>
+      </column>
+      <column id="273" parent="25" name="remark">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="274" parent="25" name="sub_code_num">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="275" parent="25" name="customer_show_flag">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="276" parent="25" name="quality_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <key id="277" parent="25" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="278" parent="26" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="279" parent="26" name="no">
+        <comment>流程编号</comment>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="280" parent="26" name="name">
+        <comment>流程名称</comment>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="281" parent="26" name="company_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="282" parent="26" name="company_name">
+        <comment>公司名称</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="283" parent="26" name="brand_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="284" parent="26" name="brand_name">
+        <comment>品牌名称</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="285" parent="26" name="product_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="286" parent="26" name="product_name">
+        <comment>产品名称</comment>
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="287" parent="26" name="type">
+        <comment>0：按顺序 1：不按顺序</comment>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="288" parent="26" name="status">
+        <comment>0:未发布  1：已发布</comment>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="289" parent="26" name="create_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="290" parent="26" name="create_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="291" parent="26" name="create_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="292" parent="26" name="update_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="293" parent="26" name="update_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="294" parent="26" name="update_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="295" parent="26" name="description">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="296" parent="26" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="297" parent="27" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="298" parent="27" name="level">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="299" parent="27" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="300" parent="27" name="parent_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="301" parent="27" name="sort">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="302" parent="27" name="status">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="303" parent="27" name="company_id">
+        <comment>公司id</comment>
+        <data-type>bigint(19)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="304" parent="27" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="305" parent="28" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="306" parent="28" name="name">
+        <comment>产品名称</comment>
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="307" parent="28" name="company_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="308" parent="28" name="company_name">
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="309" parent="28" name="brand_id">
+        <comment>品牌ID</comment>
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="310" parent="28" name="description">
+        <comment>产品描述</comment>
+        <data-type>varchar(1024)</data-type>
+      </column>
+      <column id="311" parent="28" name="create_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="312" parent="28" name="create_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="313" parent="28" name="create_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="314" parent="28" name="update_user_id">
+        <data-type>bigint(19)</data-type>
+      </column>
+      <column id="315" parent="28" name="update_user_name">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="316" parent="28" name="update_time">
+        <data-type>char(19)</data-type>
+      </column>
+      <column id="317" parent="28" name="image">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="318" parent="28" name="image_url">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="319" parent="28" name="portal_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="320" parent="28" name="category_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="321" parent="28" name="growing_method">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="322" parent="28" name="size">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="323" parent="28" name="unit">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="324" parent="28" name="upc">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="325" parent="28" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="326" parent="29" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="327" parent="29" name="category">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="328" parent="29" name="company_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="329" parent="29" name="created_time">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="330" parent="29" name="created_user_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="331" parent="29" name="del_flag">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="332" parent="29" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="333" parent="29" name="update_time">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="334" parent="29" name="update_user_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="335" parent="29" name="status">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="336" parent="29" name="description">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="337" parent="29" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="338" parent="30" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="339" parent="30" name="allow_defect_raw">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="340" parent="30" name="company_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="341" parent="30" name="created_time">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="342" parent="30" name="created_user_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="343" parent="30" name="defect_level">
+        <comment>1:等级1,2:等级2,3:等级3</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="344" parent="30" name="del_flag">
+        <comment>0:有效,1:无效</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="345" parent="30" name="description">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="346" parent="30" name="img_path">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="347" parent="30" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="348" parent="30" name="quality_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="349" parent="30" name="update_time">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="350" parent="30" name="update_user_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <key id="351" parent="30" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="352" parent="31" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="353" parent="31" name="allow_defect_raw">
+        <data-type>double</data-type>
+      </column>
+      <column id="354" parent="31" name="company_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="355" parent="31" name="create_time">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="356" parent="31" name="defect_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="357" parent="31" name="defect_level">
+        <comment>1:等级1,2:等级2,3:等级3</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="358" parent="31" name="del_flag">
+        <comment>0:有效,1:无效</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="359" parent="31" name="img_path">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="360" parent="31" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="361" parent="31" name="update_time">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="362" parent="31" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="363" parent="32" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="364" parent="32" name="allow_defect_raw">
+        <data-type>double</data-type>
+      </column>
+      <column id="365" parent="32" name="company_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="366" parent="32" name="create_time">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="367" parent="32" name="defect_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="368" parent="32" name="defect_level">
+        <comment>1:等级1,2:等级2,3:等级3</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="369" parent="32" name="del_flag">
+        <comment>0:有效,1:无效</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="370" parent="32" name="img_path">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="371" parent="32" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="372" parent="32" name="update_time">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="373" parent="32" name="file">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="374" parent="32" name="file_path">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="375" parent="32" name="description">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="376" parent="32" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="377" parent="33" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="378" parent="33" name="company_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="379" parent="33" name="company_name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="380" parent="33" name="del_flag">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="381" parent="33" name="quality_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="382" parent="33" name="relation_company_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="383" parent="33" name="relation_name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="384" parent="33" name="relation_type">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="385" parent="33" name="status">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="386" parent="33" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="387" parent="34" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="388" parent="34" name="company_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="389" parent="34" name="created_time">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="390" parent="34" name="created_user_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="391" parent="34" name="del_flag">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="392" parent="34" name="description">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="393" parent="34" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="394" parent="34" name="quality_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="395" parent="34" name="update_time">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="396" parent="34" name="update_user_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <key id="397" parent="34" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="398" parent="35" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="399" parent="35" name="company_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="400" parent="35" name="created_time">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="401" parent="35" name="del_flag">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="402" parent="35" name="description">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="403" parent="35" name="img_path">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="404" parent="35" name="mark">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="405" parent="35" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="406" parent="35" name="standard_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="407" parent="35" name="update_time">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="408" parent="35" name="quality_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <key id="409" parent="35" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
