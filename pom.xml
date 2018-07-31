@@ -256,11 +256,6 @@
 
     </dependencies>
 
-
-
-
-
-
     <build>
         <plugins>
             <plugin>
@@ -272,7 +267,7 @@
                 </configuration>
             </plugin>
 
-            <!--自动生成 mapper、entity、example-->
+            <!--自动生成 mapper、entity、example，启动的时候去插件里面找-->
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
@@ -297,15 +292,17 @@
 
         <resources>
             <resource>
+                <!-- 指定resources插件处理哪个目录下的资源文件 -->
                 <directory>src/main/java</directory>
+                <filtering>true</filtering>
+                <!--注意此次必须要放在此目录下才能被访问到 -->
                 <includes>
                     <include>**/*.xml</include>
                 </includes>
-                <filtering>true</filtering>
             </resource>
-            　　　　
 
             <resource>
+                <!-- 指定resources插件处理哪个目录下的资源文件 -->
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
