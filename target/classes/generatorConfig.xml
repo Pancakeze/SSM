@@ -22,9 +22,9 @@
         <javaClientGenerator targetPackage="com.pancake.dao"
                              targetProject="src/main/java" type="XMLMAPPER"/>
 
-        <table schema="tra_links" tableName="tra_links">
-        </table>
-        <table schema="tra_quality" tableName="tra_quality">
+       <!-- <table schema="tra_links" tableName="tra_links">
+        </table>-->
+        <table schema="tra_quality_standard" tableName="tra_quality_standard">
         </table>
 
     </context>

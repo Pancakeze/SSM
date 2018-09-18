@@ -11,9 +11,16 @@
        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
-        <property name="location" value="classpath:jdbc.properties"></property>
+        <property name="locations" >
+                <list>
+                    <value>classpath:jdbc.properties</value>
+                    <value>classpath:rabbitmq.properties</value>
+                </list>
+        </property>
     </bean>
 
+    <!--数据库配置 开始-->
+    <!--druid 数据库连接池-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
 
         <!-- 指定连接数据库的驱动 -->
@@ -61,5 +68,12 @@
         <property name="basePackage" value="com.pancake.dao" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
+<!--目前缺少事物-->
+
+<!--数据库配置结束-->
+
+
+
+
 
 </beans>

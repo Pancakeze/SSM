@@ -21,5 +21,6 @@
         -->
 
         <mapping class="com.pancake.pojo.TraLinksEntity"/>
+        <mapping class="com.pancake.pojo.TraLinkAddressEntity"/>
     </session-factory>
 </hibernate-configuration>

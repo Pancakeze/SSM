@@ -22,7 +22,7 @@ public class EhcacheServiceImpl implements EhcacheService
     private TraLinksMapper traLinksMapper;
 
     @Override
-    @Cacheable(value="cacheOne",key = "#params")
+    //@Cacheable(value="cacheOne",key = "#params")
     public String getTimes(String params) {
 
         return System.currentTimeMillis() + "";

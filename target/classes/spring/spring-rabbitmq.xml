@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+   <!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+        <property name="location" value="classpath:rabbitmq.properties">
+               &lt;!&ndash; <list>
+                    <value>classpath:rabbitmq.properties</value>
+                </list>&ndash;&gt;
+        </property>
+    </bean>-->
+
+    <bean id="rabbitmqFactory" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+        <constructor-arg value="location"/>
+        <property name="username" value="${rmq.username}"/>
+        <property name="password" value="${rmq.password}"/>
+        <property name="port" value="${rmq.port}"/>
+        <property name="host" value="${rmq.ip}"/>
+    </bean>
+
+    <bean id="rabbitmqAdmin" class="org.springframework.amqp.rabbit.core.RabbitAdmin">
+        <constructor-arg ref="rabbitmqFactory"/>
+    </bean>
+
+    <bean id="rabbitmqTemplate" class="org.springframework.amqp.rabbit.core.RabbitTemplate">
+        <constructor-arg ref="rabbitmqFactory"/>
+    </bean>
+
+
+
+
+
+</beans>

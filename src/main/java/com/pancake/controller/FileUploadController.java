@@ -12,7 +12,9 @@ import com.pancake.utils.ResultData;
 import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -116,6 +118,11 @@ public class FileUploadController {
     @ResponseBody
     public String print() {
       return  myService.getContent();
+    }
+
+    @RequestMapping(value="/receive/{name}",method = RequestMethod.GET)
+    public void receive( @PathVariable("name") String name) {
+        System.out.println(name);
     }
 }
 

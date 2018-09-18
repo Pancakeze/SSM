@@ -57,5 +57,7 @@ public class Two {
 
         System.out.print("经过json处理:");
         System.out.println(objJson);
+
+        objJson.indexOf("a");
     }
 }

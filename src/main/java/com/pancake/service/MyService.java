@@ -6,4 +6,6 @@ package com.pancake.service;
 public interface MyService {
 
     String getContent();
+
+
 }
