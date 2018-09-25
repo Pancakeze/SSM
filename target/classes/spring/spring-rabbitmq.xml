@@ -3,39 +3,102 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/rabbit
+       http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
 
-   <!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
-        <property name="location" value="classpath:rabbitmq.properties">
-               &lt;!&ndash; <list>
-                    <value>classpath:rabbitmq.properties</value>
-                </list>&ndash;&gt;
-        </property>
-    </bean>-->
 
-    <bean id="rabbitmqFactory" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
-        <constructor-arg value="location"/>
+
+    <!--<bean id="rabbitmqFactory" class="com.rabbitmq.client.ConnectionFactory">
         <property name="username" value="${rmq.username}"/>
         <property name="password" value="${rmq.password}"/>
         <property name="port" value="${rmq.port}"/>
-        <property name="host" value="${rmq.ip}"/>
+        <property name="host" value="${rmq.host}"/>
+        <property name="virtualHost" value="${rmq.virtual}"/>
     </bean>
 
-    <bean id="rabbitmqAdmin" class="org.springframework.amqp.rabbit.core.RabbitAdmin">
-        <constructor-arg ref="rabbitmqFactory"/>
+    <bean id="connectionFactory" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+
+        <constructor-arg name="rabbitConnectionFactory" ref="rabbitmqFactory"/>
+
     </bean>
 
-    <bean id="rabbitmqTemplate" class="org.springframework.amqp.rabbit.core.RabbitTemplate">
-        <constructor-arg ref="rabbitmqFactory"/>
+    <bean id="rabbitAdmin"  class="org.springframework.amqp.rabbit.core.RabbitAdmin">
+    <constructor-arg ref="connectionFactory" />
+    </bean>
+    &lt;!&ndash; 创建rabbitTemplate 消息模板类 &ndash;&gt;
+    <bean id="rabbitTemplate"  class="org.springframework.amqp.rabbit.core.RabbitTemplate">
+        <constructor-arg ref="connectionFactory" />
+        <property name="queue" value="${rmq.queue}"/>
+        <property name="exchange" value="${rmq.exchange}"/>
+        <property name="routingKey" value="${rmq.routeKey}"/>
     </bean>
 
+    <rabbit:queue id="pancakeQueue" name="${rmq.queue}" durable="true" auto-delete="false" exclusive="false"></rabbit:queue>
 
+    <rabbit:direct-exchange name="${rmq.exchange}" id="${rmq.exchange}" auto-delete="false" durable="true">
+        <rabbit:bindings>
+            <rabbit:binding queue="pancakeQueue" key="${rmq.routeKey}"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
 
+    <bean id="messageReceiver" class="com.pancake.mq.consumer.FirstConsumer" />
 
+    <rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto">
+        <rabbit:listener ref="messageReceiver" queues="pancakeQueue"></rabbit:listener>
+    </rabbit:listener-container>-->
+    <context:component-scan base-package="com.pancake.mq" />
+    
+    <!--连接配置-->
+    <rabbit:connection-factory id="connectionFactory"
+        username="${rmq.username}"
+        password="${rmq.password}"
+        port="${rmq.port}"
+        host="${rmq.host}"
+        virtual-host="${rmq.virtual}"
+    />
+    <rabbit:admin connection-factory="connectionFactory" />
+
+    <!--消息队列客户端-->
+    <rabbit:template id="amqpTemplate" exchange="${rmq.exchange}" connection-factory="connectionFactory" />
+
+    <!--
+        声名队列
+        durable：是否持久化
+        exclusive：仅创建者可以使用的私有队列，断开后自中删除
+        auto-delete 当所有消费端连接断开后，是否自动删除队列
+    -->
+    <rabbit:queue id="pancakeQueue" name="${rmq.queue}" auto-delete="false" durable="true" exclusive="false" />
+
+    <!--
+        定义交换机
+        direct模式：消息与特定的路由器匹配，才会发送
+        topic模式:按模式匹配
+    -->
+    <rabbit:topic-exchange name="${rmq.exchange}" durable="true" auto-delete="false" >
+        <rabbit:bindings>
+            <!-- 设置消息Queue匹配的pattern (direct模式为key) -->
+            <rabbit:binding queue="pancakeQueue" pattern="${rmq.routeKey}"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+    
+<!--
+    <rabbit:direct-exchange name=""></rabbit:direct-exchange>
+-->
+    <!--消费者-->
+    <bean name="rabbitmqConsumer" class="com.pancake.mq.consumer.FirstConsumer"/>
+
+    <rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto">
+        <!--
+            这里如果不指定method，，那么会就去实现MessageListener接口，重写onMessage（Message message）方法
+        -->
+        <rabbit:listener ref="rabbitmqConsumer" queues="pancakeQueue" method="getMessage"/>
+    </rabbit:listener-container>
 
 </beans>

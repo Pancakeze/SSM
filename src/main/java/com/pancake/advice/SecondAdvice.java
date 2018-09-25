@@ -27,7 +27,6 @@ public class SecondAdvice {
 
     @Before("pointCut()")
     public void before() {
-        System.out.println();
         System.out.println("before method");
     }
 
@@ -40,7 +39,7 @@ public class SecondAdvice {
     public void around(ProceedingJoinPoint jp) {
         System.out.println("around method");
         try {
-            //jp.proceed();
+            jp.proceed();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
