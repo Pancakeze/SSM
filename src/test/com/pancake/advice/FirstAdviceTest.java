@@ -21,7 +21,9 @@ public class FirstAdviceTest {
 
     @Test
     public void testBefore() throws Exception {
-        firstAdvice.before();
+//        firstAdvice.before();
+        System.out.println();
+
     }
 
     @Test

@@ -1,5 +1,6 @@
 package com.pancake.mq;
 
+import com.pancake.dao.PersonDAO;
 import com.pancake.mq.provider.FirstProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -18,6 +19,7 @@ public class RabbitMQTest {
 
     @Autowired
     private FirstProvider rabbitMQ;
+
 
     @Test
     public void testPushMsg2Mq() throws Exception {

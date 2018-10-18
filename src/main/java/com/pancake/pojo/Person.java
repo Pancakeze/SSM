@@ -5,9 +5,21 @@ package com.pancake.pojo;
  */
 public class Person {
 
+    private String stuid;
+
     private String name;
 
     private int age;
+
+    private String rabbitMessage;
+
+    public String getStuid() {
+        return stuid;
+    }
+
+    public void setStuid(String stuid) {
+        this.stuid = stuid;
+    }
 
     public int getAge() {
         return age;
@@ -23,6 +35,14 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getRabbitMessage() {
+        return rabbitMessage;
+    }
+
+    public void setRabbitMessage(String rabbitMessage) {
+        this.rabbitMessage = rabbitMessage;
     }
 
     @Override
